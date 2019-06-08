@@ -1,0 +1,50 @@
+{
+  "name": "react-com-rotas",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-dropzone": "^10.1.5",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-spinners": "^0.5.4",
+    "react-toastify": "^5.2.1",
+    "reactstrap": "^8.0.0",
+    "recharts": "^1.6.0",
+    "redux": "^4.0.1",
+    "redux-form": "^8.2.1",
+    "redux-form-input-masks": "^2.0.1",
+    "redux-saga": "^1.0.2",
+    "styled-components": "^4.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "surge build --domain react-com-rotas.surge.sh"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
+  }
+}
