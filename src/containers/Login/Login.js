@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import { getFormValues, Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import validate from '../../utils/formValidation';
+import validate from 'utils/formValidation';
 import jwt_decode from 'jwt-decode';
+import { translate } from 'react-translate';
+import PropTypes from 'prop-types'
 
 // Components
 import {
@@ -20,20 +21,22 @@ import {
     Label,
     CardBody,
     CardTitle,
+    Container,
 } from 'reactstrap';
 import { SyncLoader } from 'react-spinners';
-import Input from '../../components/Input/Input';
+import Input from 'components/Input/Input';
 
 // Types
-import { SHOW_TOAST } from '../../redux/toast/types';
-import { TOKEN_DECODED } from '../../redux/authentication/types';
+import { SHOW_TOAST } from 'redux/toast/types';
+import { TOKEN_DECODED } from 'redux/authentication/types';
 
 const Title = styled('h1')`
-    font-size: 40px;
-    text-align: center;
-    margin: 30px 0 10px;
-    color: #333;
-`
+    ${({ theme }) => `
+        font-size: ${theme.fontSize.px40};
+        text-align: center;
+        margin: 30px 0 10px;
+        color: #333;
+`};`
 
 const CardTitleStyled = styled(CardTitle)`
     font-size: 20px;
@@ -118,7 +121,7 @@ class LoginForm extends Component {
     }
 
     render() {
-        const { state } = this;
+        const { state, props: { t } } = this;
 
         return (
             <Form>
@@ -126,12 +129,12 @@ class LoginForm extends Component {
                     <Row>
                         <Col sm="12" md={{ size: 5, offset: 3 }}>
                             <Card>
-                                <Title>Dispatcher</Title>
+                                <Title data-testid='title'>Dispatcher</Title>
                                 <CardBody>
                                     <CardTitleStyled color='secondary'>
                                         LOGIN
                                         <p>
-                                            Esqueceu sua senha? <Link to='forgotPassword'>
+                                            {t('FORGOT_PASSWORD')} <Link to='forgotPassword'>
                                                 Clique aqui
                                             </Link>
                                         </p>
@@ -185,4 +188,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(LoginForm));
+LoginForm.propTypes = {
+    t: PropTypes.func,
+}
+
+LoginForm.defaultProps = {
+    t: () => { },
+}
+
+export default withRouter(translate('Login')(connect(mapStateToProps)(LoginForm)));
