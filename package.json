@@ -6,7 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "jwt-decode": "^2.2.0",
